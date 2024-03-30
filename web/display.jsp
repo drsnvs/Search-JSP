@@ -20,7 +20,9 @@
             try{
             Connection con = null;
             PreparedStatement ps = null;
+            
             ResultSet rs =null;
+            
             HttpSession ssn = request.getSession();
             
                 Class.forName("com.mysql.jdbc.Driver");
@@ -28,6 +30,8 @@
                 
                 String mname = (String) request.getParameter("mname");
                 String mfname = (String) request.getParameter("mfname");
+                
+                
                 
                 if(mname.equals("") || mfname.equals("")){
                     ps = con.prepareStatement("select * from medicine where medicine_name=? or manufacturer_name=?");
@@ -37,6 +41,7 @@
                 ps.setString(1,mname);
                 ps.setString(2,mfname);
                 rs = ps.executeQuery();
+                
                 
                 
                                     
@@ -53,18 +58,18 @@
                         while(rs.next()){
                     %>
                     <tr>
-                    <td><% out.println(rs.getInt("id"));%></td>
-                    <td><% out.println(rs.getString("medicine_name"));%></td>
-                    <td><% out.println(rs.getString("medicine_detail"));%></td>
-                    <td><% out.println(rs.getString("manufacturer_name"));%></td>
-                    <td><% out.println(rs.getString("batch_no"));%></td>
-                    <td><% out.println(rs.getDate("manufacturing_month_year"));%></td>
-                    <td><% out.println(rs.getDate("expiring_month_year"));}%></td></tr>
-
-
-
+                        <td><% out.println(rs.getInt("id"));%></td>
+                        <td><% out.println(rs.getString("medicine_name"));%></td>
+                        <td><% out.println(rs.getString("medicine_detail"));%></td>
+                        <td><% out.println(rs.getString("manufacturer_name"));%></td>
+                        <td><% out.println(rs.getString("batch_no"));%></td>
+                        <td><% out.println(rs.getDate("manufacturing_month_year"));%></td>
+                        <td><% out.println(rs.getDate("expiring_month_year"));}%></td>
+                    </tr>
                 </table>
             <%}%>
+                
+            
         <%
             }catch(Exception e){
                 e.printStackTrace();

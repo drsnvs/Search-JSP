@@ -12,6 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            try{
+            Connection con = null;
+            PreparedStatement pss = null;
+            ResultSet rss =null;
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/darshan_14","root","");
+            
+            pss = con.prepareStatement("select * from medicine");   
+            rss = pss.executeQuery();
+            HttpSession ssn = request.getSession();
+            ssn.setAttribute("key", ssn.getId());   
+        %>
         <form action="#" method="post">
             <table>
                 <tr>
@@ -30,14 +43,27 @@
                 </tr>
             </table>
         </form>
-        <%
-            try{
-            HttpSession ssn = request.getSession();
-            ssn.setAttribute("key", ssn.getId());
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        %>
+        <table border="1">
+            <tr>
+                <td>id</td><td>medicine_name</td><td>medicine_detail</td><td>manufacturer_name</td><td>batch_no</td><td>manufacturing_month_year</td><td>expiring_month_year</td>
+            </tr>
+
+            <%
+                while(rss.next()){
+            %>
+            <tr>
+                <td><% out.println(rss.getInt("id"));%></td>
+                <td><% out.println(rss.getString("medicine_name"));%></td>
+                <td><% out.println(rss.getString("medicine_detail"));%></td>
+                <td><% out.println(rss.getString("manufacturer_name"));%></td>
+                <td><% out.println(rss.getString("batch_no"));%></td>
+                <td><% out.println(rss.getDate("manufacturing_month_year"));%></td>
+                <td><% out.println(rss.getDate("expiring_month_year"));}
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }%></td>
+            </tr>
+        </table>
         <%@include file="display.jsp" %>
     </body>
 </html>
