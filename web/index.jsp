@@ -19,7 +19,14 @@
                         Enter medicine name:
                     </td>
                     <td><input type="text" name="mname" id="mname"> </td>
-                    <td><input type="submit" value="search" id="search" </td>
+                    <!--<td><input type="submit" value="search" id="msearch" </td>-->
+                </tr>
+                <tr>
+                    <td>
+                        Enter Manufacturer name:
+                    </td>
+                    <td><input type="text" name="mfname" id="mfname"> </td>
+                    <td><input type="submit" value="search" id="mfsearch" </td>
                 </tr>
             </table>
         </form>
