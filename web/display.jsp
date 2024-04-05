@@ -54,7 +54,7 @@
                         <td>id</td><td>medicine_name</td><td>medicine_detail</td><td>manufacturer_name</td><td>batch_no</td><td>manufacturing_month_year</td><td>expiring_month_year</td>
                     </tr>
 
-                    <%
+                    <%  
                         while(rs.next()){
                     %>
                     <tr>
