@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<table>
+		<record>
+			<no>1</no>
+			
+			 <xs:element name="record">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="no">
+                                        <xs:unique name="uniqueEmployeeID">
+                                            <xs:selector xpath="record"/>
+                                            <xs:field xpath="no"/>
+                                        </xs:unique>
+                                    </xs:element>
+                                    <xs:element name="firstname" type="xs:string"/>
+                                    <xs:element name="salary"  type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+						
+						
+						CREATE TABLE `parikshit_20`.`student` (`stdid` INT(2) NULL AUTO_INCREMENT , `stdname` CHAR(25) NOT NULL , PRIMARY KEY (`stdid`)) ENGINE = InnoDB;
+						
+						
+						 <h1> </h1>
+                <table>
+                    <tr>
+                        <td><label for ="stdid">Eneter Your Student Id</label></td>
+                        <td><input type="number" name="stdid"></td>
+                    </tr>
+                    <tr>
+                        <td><label for ="Paython">Eneter Your Paython Marks</label></td>
+                        <td><input type="number" name="Paython"></td>
+                    </tr>
+                    <tr>
+                        <td><label for ="Java">Eneter Your Java Marks</label></td>
+                        <td><input type="number" name="Java"></td>
+                    </tr>
+                    <tr>
+                        <td><label for ="Android">Eneter Your Android Marks</label></td>
+                        <td><input type="number" name="Android"></td>
+                    </tr>
+                    <tr>
+                        <td><label for ="Assigment">Eneter Your Assigment Marks</label></td>
+                        <td><input type="number" name="Assigment"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" value="Reset"/> </td>
+                        <td><input type="submit" value="Sumbit now"/></td>
+                    </tr>
+                </table>
+                
